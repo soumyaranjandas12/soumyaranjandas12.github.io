@@ -1,0 +1,544 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Soumya Ranjan Das</title>
+<meta name="description" content="Soumya Ranjan Das — Senior Backend Engineer with 16 years of experience. Python, FastAPI, Django, PostgreSQL, AWS. Scalable, secure systems for healthcare and banking.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@112,500;112,600;112,800&family=Public+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: sticky top bar, dark full-bleed hero with API-response card, then a centred 1100px record with a proportional career timeline. */
+:root{
+  --paper:#F3F5F8; --surface:#FFFFFF; --ink:#10161D; --muted:#58626E; --line:#DCE1E7;
+  --accent:#1D4ED8; --accent-ink:#FFFFFF; --accent-soft:#E4EAFB; --ok:#0F7B4B;
+  --hero:#0B1118; --hero-2:#121A24; --hero-ink:#EEF2F6; --hero-muted:#93A0AE; --hero-line:#223040; --hero-accent:#86A8FF;
+  --code-key:#8FB3FF; --code-str:#9FD8B5; --code-num:#F2C27A; --code-p:#66727F;
+  --seg1:#1D4ED8; --seg2:#3B6CE6; --seg3:#0E8A6A; --seg4:#B7791F; --seg5:#7C4DDB; --seg6:#C2410C;
+  --display:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --body:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#0E1218; --surface:#151B23; --ink:#E7ECF1; --muted:#9AA5B1; --line:#27313C;
+  --accent:#86A8FF; --accent-ink:#0B1118; --accent-soft:#1B2643; --ok:#5FD39A;
+  --hero:#080C11; --hero-2:#0F151D; --hero-line:#1E2A37;
+  --seg1:#6E93FF; --seg2:#4F7BF0; --seg3:#3DBF95; --seg4:#E0A64A; --seg5:#A685F0; --seg6:#F07A45; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#0E1218; --surface:#151B23; --ink:#E7ECF1; --muted:#9AA5B1; --line:#27313C;
+  --accent:#86A8FF; --accent-ink:#0B1118; --accent-soft:#1B2643; --ok:#5FD39A;
+  --hero:#080C11; --hero-2:#0F151D; --hero-line:#1E2A37;
+  --seg1:#6E93FF; --seg2:#4F7BF0; --seg3:#3DBF95; --seg4:#E0A64A; --seg5:#A685F0; --seg6:#F07A45; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--hero)}
+a{color:var(--accent);text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0}
+p{margin:0}
+.inner{max-width:1100px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+
+/* Top bar */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:color-mix(in srgb,var(--hero) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--hero-line)}
+.top .inner{display:flex;align-items:center;justify-content:space-between;gap:20px;height:60px}
+.mark{font-family:var(--display);font-weight:800;font-stretch:112%;color:var(--hero-ink);text-decoration:none;font-size:17px;letter-spacing:.01em}
+.mark span{color:var(--hero-accent)}
+.top nav{display:flex;gap:4px;flex-wrap:wrap}
+.top nav a{color:var(--hero-muted);text-decoration:none;font-size:14px;padding:6px 10px;border-radius:6px}
+.top nav a:hover,.top nav a.active{color:var(--hero-ink);background:var(--hero-2)}
+
+/* Hero */
+.hero{background:var(--hero);color:var(--hero-ink);position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(var(--hero-line) 1px,transparent 1px),linear-gradient(90deg,var(--hero-line) 1px,transparent 1px);background-size:48px 48px;opacity:.45;mask-image:radial-gradient(ellipse at 80% 20%,#000 0%,transparent 70%);-webkit-mask-image:radial-gradient(ellipse at 80% 20%,#000 0%,transparent 70%);pointer-events:none}
+.hero .inner{position:relative;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:56px;align-items:center;padding-block:72px 120px}
+.avail{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:12.5px;color:var(--hero-muted);border:1px solid var(--hero-line);border-radius:999px;padding:5px 12px 5px 10px}
+.avail::before{content:"";width:8px;height:8px;border-radius:50%;background:#5FD39A;box-shadow:0 0 0 4px rgba(95,211,154,.18)}
+.hero h1{font-size:clamp(42px,6.4vw,76px);font-weight:800;font-stretch:112%;line-height:.98;letter-spacing:-.02em;margin-top:22px}
+.hero .title{font-family:var(--display);font-stretch:112%;font-weight:500;font-size:clamp(19px,2.2vw,24px);color:var(--hero-accent);margin-top:16px}
+.hero .pitch{color:var(--hero-muted);font-size:17px;max-width:52ch;margin-top:18px}
+.hero .pitch strong{color:var(--hero-ink);font-weight:600}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:8px;font-weight:600;font-size:15px;text-decoration:none;border:1px solid var(--hero-line);color:var(--hero-ink);background:transparent;cursor:pointer;font-family:var(--body);transition:border-color .15s,transform .15s}
+.btn:hover{border-color:var(--hero-muted);transform:translateY(-1px)}
+.btn.primary{background:var(--hero-accent);color:#0B1118;border-color:var(--hero-accent)}
+.btn svg{width:16px;height:16px;flex:none}
+
+.term{background:var(--hero-2);border:1px solid var(--hero-line);border-radius:12px;font-family:var(--mono);font-size:13.5px;line-height:1.75;box-shadow:0 30px 60px -20px rgba(0,0,0,.6);min-width:0}
+.term-head{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:12px 18px;border-bottom:1px solid var(--hero-line);font-size:12.5px;color:var(--hero-muted)}
+.term-head .verb{color:var(--code-num);font-weight:500;margin-right:8px}
+.term-head .code{color:#5FD39A}
+.term pre{margin:0;padding:18px 20px;overflow-x:auto;color:var(--hero-ink)}
+.k{color:var(--code-key)}.s{color:var(--code-str)}.n{color:var(--code-num)}.p{color:var(--code-p)}
+
+/* Metrics */
+.metrics-wrap{margin-top:-64px;position:relative;z-index:2}
+.metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));background:var(--surface);border:1px solid var(--line);border-radius:14px;box-shadow:0 20px 40px -24px rgba(16,22,29,.25)}
+.metric{padding:24px 24px;display:flex;flex-direction:column;gap:8px}
+.metric + .metric{border-left:1px solid var(--line)}
+.metric b{font-family:var(--display);font-size:clamp(30px,3.4vw,40px);font-weight:800;font-stretch:112%;line-height:1;font-variant-numeric:tabular-nums;color:var(--ink)}
+.metric b em{font-style:normal;color:var(--accent)}
+.metric span{font-size:13.5px;color:var(--muted);line-height:1.45}
+
+/* Sections */
+main{display:flex;flex-direction:column;gap:104px;padding-block:96px 96px}
+section{scroll-margin-top:84px}
+.head{display:flex;flex-direction:column;gap:10px;margin-bottom:36px;max-width:62ch}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+h2{font-size:clamp(28px,3.4vw,38px);font-weight:800;font-stretch:112%;letter-spacing:-.015em;line-height:1.08}
+.head p{color:var(--muted);font-size:16.5px}
+
+/* About */
+.about{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:56px;align-items:start}
+.about .text{display:flex;flex-direction:column;gap:16px;font-size:17px;max-width:62ch}
+.pillars{display:flex;flex-direction:column;gap:12px}
+.pillar{display:grid;grid-template-columns:44px minmax(0,1fr);gap:16px;padding:18px;background:var(--surface);border:1px solid var(--line);border-radius:12px}
+.pillar .ic{width:44px;height:44px;border-radius:10px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center}
+.pillar .ic svg{width:22px;height:22px}
+.pillar h3{font-size:16.5px;font-weight:600;font-stretch:112%}
+.pillar p{font-size:14.5px;color:var(--muted);margin-top:3px}
+
+/* Timeline */
+.tl{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:24px 24px 20px;margin-bottom:28px}
+.tl-bar{position:relative;height:40px;border-radius:8px;background:repeating-linear-gradient(90deg,var(--line) 0 1px,transparent 1px calc(100%/16.58));overflow:hidden}
+.seg{position:absolute;top:6px;bottom:6px;border-radius:5px;min-width:6px}
+.tl-axis{display:flex;justify-content:space-between;font-family:var(--mono);font-size:11.5px;color:var(--muted);margin-top:8px;font-variant-numeric:tabular-nums}
+.tl-legend{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:16px;font-size:13.5px}
+.tl-legend span{display:inline-flex;align-items:center;gap:8px;color:var(--muted)}
+.tl-legend i{width:10px;height:10px;border-radius:3px;display:inline-block}
+.tl-legend b{color:var(--ink);font-weight:600}
+
+/* Experience */
+.jobs{display:flex;flex-direction:column;gap:16px}
+.job{display:grid;grid-template-columns:200px minmax(0,1fr);gap:32px;padding:28px;background:var(--surface);border:1px solid var(--line);border-radius:14px}
+.job .side{display:flex;flex-direction:column;gap:10px}
+.when{font-family:var(--mono);font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.dur{font-family:var(--mono);font-size:11.5px;color:var(--muted)}
+.now{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:11.5px;color:var(--ok);border:1px solid color-mix(in srgb,var(--ok) 40%,transparent);border-radius:999px;padding:2px 9px;width:max-content}
+.now::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--ok)}
+.dot{width:10px;height:10px;border-radius:3px;display:inline-block;margin-right:8px;vertical-align:1px}
+.job h3{font-size:21px;font-weight:600;font-stretch:112%;line-height:1.25}
+.org{color:var(--muted);font-size:15px;margin-top:4px}
+.org strong{color:var(--ink);font-weight:600}
+.job ul{margin:16px 0 0;padding-left:18px;display:flex;flex-direction:column;gap:8px;max-width:70ch}
+.job li::marker{color:var(--accent)}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:18px}
+.tag{font-family:var(--mono);font-size:11.5px;padding:4px 9px;border-radius:5px;background:var(--accent-soft);color:var(--ink)}
+
+/* Projects */
+.projects{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.proj{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:26px;display:flex;flex-direction:column;gap:12px;min-width:0;transition:transform .2s,border-color .2s}
+.proj:hover{transform:translateY(-3px);border-color:var(--accent)}
+.proj .meta{font-family:var(--mono);font-size:11.5px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.proj h3{font-size:20px;font-weight:600;font-stretch:112%;line-height:1.2}
+.proj p{font-size:15px;color:var(--muted)}
+.proj .result{margin-top:auto;padding-top:16px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:2px}
+.proj .result b{font-family:var(--display);font-stretch:112%;font-size:24px;font-weight:800;color:var(--accent);line-height:1.1}
+.proj .result span{font-size:13px;color:var(--muted)}
+
+/* Skills */
+.skills{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.skill{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:14px}
+.skill h3{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-size:14px;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--paper);color:var(--ink)}
+.chip.key{border-color:var(--accent);color:var(--accent);font-weight:600}
+
+/* Background */
+.extras{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:24px}
+.box h3{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
+.list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.list li{display:flex;justify-content:space-between;gap:16px;font-size:15px;padding-block:10px;border-top:1px solid var(--line)}
+.list li:first-child{border-top:0;padding-top:0}
+.list li small{font-family:var(--mono);font-size:12px;color:var(--muted);white-space:nowrap;padding-top:2px}
+.list .sub{display:block;color:var(--muted);font-size:14px}
+.award{color:var(--accent);margin-right:6px}
+
+/* Contact */
+.cta{background:var(--hero);color:var(--hero-ink);border-radius:18px;padding:48px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:end;position:relative;overflow:hidden}
+.cta h2{color:var(--hero-ink);font-size:clamp(28px,3.6vw,42px)}
+.cta p{color:var(--hero-muted);margin-top:12px;max-width:50ch}
+.cta .lines{display:flex;flex-direction:column;gap:10px;font-family:var(--mono);font-size:14px}
+.cta .lines a{color:var(--hero-ink);text-decoration:none}
+.cta .lines a:hover{color:var(--hero-accent)}
+.cta .lines .lbl{color:var(--hero-muted);display:inline-block;width:76px}
+.cta .actions{margin-top:24px}
+footer{padding-block:0 48px;font-family:var(--mono);font-size:12px;color:var(--muted);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+@media (max-width:960px){
+  .hero .inner{grid-template-columns:minmax(0,1fr);gap:40px;padding-block:48px 112px}
+  .about{grid-template-columns:minmax(0,1fr);gap:32px}
+  .projects,.skills{grid-template-columns:minmax(0,1fr)}
+  .metrics{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .metric:nth-child(3){border-left:0}
+  .metric:nth-child(n+3){border-top:1px solid var(--line)}
+  .top nav{display:none}
+  .cta{grid-template-columns:minmax(0,1fr);padding:32px}
+}
+@media (max-width:640px){
+  .job{grid-template-columns:minmax(0,1fr);gap:14px;padding:22px}
+  .job .side{flex-direction:row;flex-wrap:wrap;align-items:center;gap:8px 14px}
+  .extras{grid-template-columns:minmax(0,1fr)}
+  .metric{padding:18px}
+  .term{font-size:12px}
+  main{gap:80px;padding-block:72px}
+  .tl{padding:18px}
+  .tl-axis span:nth-child(even){display:none}
+  .cta{padding:26px}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="inner">
+    <a class="mark" href="#home">SRD<span>.</span></a>
+    <nav aria-label="Sections">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#background">Education</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="home">
+  <div class="inner">
+    <div>
+      <span class="avail">Python Engineer at Insight Global · Pfizer</span>
+      <h1>Soumya Ranjan Das</h1>
+      <div class="title">Senior Backend Engineer</div>
+      <p class="pitch"><strong>16 years</strong> building scalable, secure backend systems for <strong>healthcare, banking and telecom</strong>. Python, FastAPI, Django, PostgreSQL and AWS.</p>
+      <div class="actions">
+        <a class="btn primary" href="mailto:srdas120986@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>Email me</a>
+        <a class="btn" href="https://www.linkedin.com/in/srdas120986" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3zM9.5 9.5h3.8v1.6h.06c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.77 2.65 4.77 6.1V21h-4v-5.2c0-1.24-.02-2.84-1.73-2.84-1.73 0-2 1.35-2 2.75V21h-4z"/></svg>LinkedIn</a>
+        <a class="btn" href="tel:+918456925117"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>+91 84569 25117</a>
+      </div>
+    </div>
+
+    <div class="term" role="img" aria-label="Profile summary shown as an API response">
+      <div class="term-head">
+        <span><span class="verb">GET</span>/api/v1/engineers/soumya</span>
+        <span class="code">200 OK</span>
+      </div>
+<pre><span class="p">{</span>
+  <span class="k">"role"</span>: <span class="s">"Senior Backend Engineer"</span>,
+  <span class="k">"experience_years"</span>: <span class="n">16</span>,
+  <span class="k">"domains"</span>: [<span class="s">"healthcare"</span>, <span class="s">"banking"</span>,
+              <span class="s">"telecom"</span>],
+  <span class="k">"stack"</span>: [<span class="s">"Python"</span>, <span class="s">"FastAPI"</span>, <span class="s">"Django"</span>,
+            <span class="s">"PostgreSQL"</span>, <span class="s">"AWS"</span>],
+  <span class="k">"strengths"</span>: [<span class="s">"system design"</span>, <span class="s">"security"</span>,
+                <span class="s">"distributed systems"</span>]
+<span class="p">}</span></pre>
+    </div>
+  </div>
+</section>
+
+<div class="inner metrics-wrap">
+  <div class="metrics">
+    <div class="metric"><b>16<em>+</em></b><span>years of backend engineering</span></div>
+    <div class="metric"><b>500K<em>+</em></b><span>patients on a healthcare platform I architected</span></div>
+    <div class="metric"><b>10M<em>+</em></b><span>users migrated across databases at Huawei</span></div>
+    <div class="metric"><b>~70<em>%</em></b><span>faster API responses after optimisation</span></div>
+  </div>
+</div>
+
+<main class="inner">
+  <section id="about">
+    <div class="head">
+      <span class="eyebrow">About</span>
+      <h2>Backend systems that stay fast, secure and correct at scale.</h2>
+    </div>
+    <div class="about">
+      <div class="text">
+        <p>I'm a Senior Backend Engineer with 16 years of experience building scalable, secure systems across healthcare, banking and telecom. I specialise in FastAPI, Django and microservices architecture on AWS.</p>
+        <p>I've designed high-performance APIs, processed datasets of 100 GB and more per day, and scaled platforms to support over 500,000 users. My strengths are system design, security and distributed systems.</p>
+      </div>
+      <div class="pillars">
+        <div class="pillar">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 6-6 6 6 6M16 6l6 6-6 6"/></svg></div>
+          <div><h3>API design &amp; microservices</h3><p>FastAPI and Django services on AWS, built for low latency and fault tolerance.</p></div>
+        </div>
+        <div class="pillar">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg></div>
+          <div><h3>Data at scale</h3><p>PostgreSQL schema design, query tuning, and pipelines handling ~100 GB a day.</p></div>
+        </div>
+        <div class="pillar">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4 6v6c0 5 3.4 8.3 8 9 4.6-.7 8-4 8-9V6z"/><path d="m9 12 2 2 4-4"/></svg></div>
+          <div><h3>Security &amp; compliance</h3><p>JWT, RBAC and token auth for HIPAA-aligned and banking-grade systems.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="head">
+      <span class="eyebrow">Experience</span>
+      <h2>16 years, six engagements.</h2>
+      <p>From telecom backends at Huawei to healthcare, banking and pharma platforms for global clients.</p>
+    </div>
+
+    <!-- Months from Mar 2010 to Oct 2026 = 199 -->
+    <div class="tl" aria-label="Career timeline from 2010 to 2026">
+      <div class="tl-bar">
+        <div class="seg" style="left:0%;width:45.7%;background:var(--seg1)" title="Huawei Technologies India, Mar 2010 – Oct 2017"></div>
+        <div class="seg" style="left:45.7%;width:27.6%;background:var(--seg2)" title="CSI Interfusion (Huawei), Oct 2017 – May 2022"></div>
+        <div class="seg" style="left:74.4%;width:11.1%;background:var(--seg3)" title="TEKsystems (Thryve Digital), Jul 2022 – May 2024"></div>
+        <div class="seg" style="left:85.9%;width:3.5%;background:var(--seg4)" title="TEKsystems (HSBC), Jun 2024 – Jan 2025"></div>
+        <div class="seg" style="left:89.4%;width:6%;background:var(--seg5)" title="Genzeon (Sharecare), Jan 2025 – Jan 2026"></div>
+        <div class="seg" style="left:98%;width:2%;background:var(--seg6)" title="Insight Global (Pfizer), Jun 2026 – present"></div>
+      </div>
+      <div class="tl-axis"><span>2010</span><span>2012</span><span>2014</span><span>2016</span><span>2018</span><span>2020</span><span>2022</span><span>2024</span><span>2026</span></div>
+      <div class="tl-legend">
+        <span><i style="background:var(--seg1)"></i><b>Huawei</b> 7.6 yrs</span>
+        <span><i style="background:var(--seg2)"></i><b>CSI Interfusion</b> 4.6 yrs</span>
+        <span><i style="background:var(--seg3)"></i><b>Thryve Digital</b> 1.9 yrs</span>
+        <span><i style="background:var(--seg4)"></i><b>HSBC</b> 7 mos</span>
+        <span><i style="background:var(--seg5)"></i><b>Sharecare</b> 1 yr</span>
+        <span><i style="background:var(--seg6)"></i><b>Pfizer</b> current</span>
+      </div>
+    </div>
+
+    <div class="jobs">
+      <article class="job">
+        <div class="side">
+          <span class="when"><span class="dot" style="background:var(--seg6)"></span>Jun 2026 – Present</span>
+          <span class="now">current role</span>
+        </div>
+        <div>
+          <h3>Python Engineer</h3>
+          <div class="org"><strong>Insight Global</strong> · client: Pfizer</div>
+          <ul>
+            <li>Developing PromoMix360 (P360), which plans marketing budgets as a continuous, nonlinear optimisation problem.</li>
+            <li>The model allocates promotional spend across brands and channels to maximise long-term net profit: incremental revenue minus spend.</li>
+            <li>Spend is the decision variable, expressed as a multiplier on historical spend; calls, impressions and other activity are derived through spend-to-activity conversions.</li>
+            <li>Guardrails cover budget availability and per-channel lower and upper bounds set as percentages of historical spend.</li>
+          </ul>
+          <div class="tags"><span class="tag">Python</span><span class="tag">Nonlinear optimisation</span><span class="tag">Pandas</span><span class="tag">NumPy</span></div>
+        </div>
+      </article>
+
+      <article class="job">
+        <div class="side">
+          <span class="when"><span class="dot" style="background:var(--seg5)"></span>Jan 2025 – Jan 2026</span>
+          <span class="dur">1 yr</span>
+        </div>
+        <div>
+          <h3>Senior Python Developer</h3>
+          <div class="org"><strong>Genzeon</strong> · client: Sharecare</div>
+          <ul>
+            <li>Led architecture and development of a cloud-native healthcare platform for 500K+ patients and 300K+ caregivers.</li>
+            <li>Designed and deployed FastAPI and Django microservices on AWS (EC2, ECS, RDS).</li>
+            <li>Introduced event-driven processing with AWS Lambda, cutting API latency.</li>
+            <li>Built secure APIs with JWT authentication and role-based access control, aligned with HIPAA.</li>
+            <li>Reduced API response times by about 60–70% through query optimisation, caching and async processing.</li>
+            <li>Worked with DevOps on CI/CD pipelines and production deployments.</li>
+          </ul>
+          <div class="tags"><span class="tag">FastAPI</span><span class="tag">Django</span><span class="tag">AWS Lambda</span><span class="tag">ECS</span><span class="tag">RDS</span><span class="tag">JWT / RBAC</span></div>
+        </div>
+      </article>
+
+      <article class="job">
+        <div class="side">
+          <span class="when"><span class="dot" style="background:var(--seg4)"></span>Jun 2024 – Jan 2025</span>
+          <span class="dur">7 mos</span>
+        </div>
+        <div>
+          <h3>Senior Python Developer</h3>
+          <div class="org"><strong>TEKsystems</strong> · client: HSBC</div>
+          <ul>
+            <li>Designed high-throughput FastAPI microservices processing around 100 GB of data per day, with optimised I/O and parallel processing.</li>
+            <li>Cut manual security triage effort by about 70% with automated risk classification pipelines.</li>
+            <li>Built stateless, secure APIs with Pydantic validation and token-based authentication.</li>
+            <li>Applied fault-tolerant patterns: retries, idempotency and structured failure handling.</li>
+            <li>Delivered real-time risk data APIs for enterprise dashboards and compliance systems, meeting banking-grade security standards.</li>
+          </ul>
+          <div class="tags"><span class="tag">FastAPI</span><span class="tag">Pydantic</span><span class="tag">Parallel processing</span><span class="tag">Security</span></div>
+        </div>
+      </article>
+
+      <article class="job">
+        <div class="side">
+          <span class="when"><span class="dot" style="background:var(--seg3)"></span>Jul 2022 – May 2024</span>
+          <span class="dur">1 yr 11 mos</span>
+        </div>
+        <div>
+          <h3>Senior Python Developer</h3>
+          <div class="org"><strong>TEKsystems</strong> · client: Thryve Digital</div>
+          <ul>
+            <li>Built NLP pipelines that raised data extraction accuracy from 60% to 90%.</li>
+            <li>Designed PostgreSQL schemas and REST APIs for medical claims processing.</li>
+            <li>Added validation and monitoring to keep data reliability high.</li>
+          </ul>
+          <div class="tags"><span class="tag">NLP</span><span class="tag">PostgreSQL</span><span class="tag">REST APIs</span></div>
+        </div>
+      </article>
+
+      <article class="job">
+        <div class="side">
+          <span class="when"><span class="dot" style="background:var(--seg2)"></span>Oct 2017 – May 2022</span>
+          <span class="dur">4 yrs 7 mos</span>
+        </div>
+        <div>
+          <h3>Senior Software Engineer</h3>
+          <div class="org"><strong>CSI Interfusion</strong> · client: Huawei Technologies</div>
+          <ul>
+            <li>Developed a defect tracking system with Flask, SQLAlchemy and MySQL.</li>
+            <li>Automated workflows and notifications to speed up issue resolution.</li>
+          </ul>
+          <div class="tags"><span class="tag">Flask</span><span class="tag">SQLAlchemy</span><span class="tag">MySQL</span></div>
+        </div>
+      </article>
+
+      <article class="job">
+        <div class="side">
+          <span class="when"><span class="dot" style="background:var(--seg1)"></span>Mar 2010 – Oct 2017</span>
+          <span class="dur">7 yrs 7 mos</span>
+        </div>
+        <div>
+          <h3>Software Engineer</h3>
+          <div class="org"><strong>Huawei Technologies India</strong></div>
+          <ul>
+            <li>Delivered large-scale backend systems in the telecom domain.</li>
+            <li>Migrated 10M+ users across databases while maintaining data integrity.</li>
+            <li>Built backend services in Python, C++ and SQL on Linux.</li>
+          </ul>
+          <div class="tags"><span class="tag">Python</span><span class="tag">C++</span><span class="tag">SQL</span><span class="tag">Linux</span></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="head">
+      <span class="eyebrow">Key projects</span>
+      <h2>Selected work.</h2>
+    </div>
+    <div class="projects">
+      <article class="proj">
+        <div class="meta">Pfizer · 2026</div>
+        <h3>PromoMix360 budget optimiser</h3>
+        <p>Nonlinear optimisation model that allocates promotional spend across brands and channels within budget and channel-level guardrails.</p>
+        <div class="result"><b>max(net profit)</b><span>incremental revenue minus spend</span></div>
+      </article>
+      <article class="proj">
+        <div class="meta">Sharecare · 2025–26</div>
+        <h3>Production healthcare platform</h3>
+        <p>Python, Django and PostgreSQL backend managing caregiver–patient relationships, with role-based access and secure data handling.</p>
+        <div class="result"><b>800K+ users</b><span>500K patients · 300K caregivers</span></div>
+      </article>
+      <article class="proj">
+        <div class="meta">Thryve Digital · 2022–24</div>
+        <h3>Medical claims automation</h3>
+        <p>NLP extraction pipelines plus relational models and REST APIs to store and serve processed claim data, with validation and monitoring.</p>
+        <div class="result"><b>60% → 90%</b><span>data extraction accuracy</span></div>
+      </article>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="head">
+      <span class="eyebrow">Skills</span>
+      <h2>Tools I work with.</h2>
+    </div>
+    <div class="skills">
+      <div class="skill"><h3>Backend</h3><div class="chips"><span class="chip key">Python</span><span class="chip key">FastAPI</span><span class="chip key">Django</span><span class="chip">Flask</span></div></div>
+      <div class="skill"><h3>Databases</h3><div class="chips"><span class="chip key">PostgreSQL</span><span class="chip">MySQL</span><span class="chip">Snowflake</span><span class="chip">Indexing &amp; query tuning</span></div></div>
+      <div class="skill"><h3>Cloud</h3><div class="chips"><span class="chip key">AWS</span><span class="chip">EC2</span><span class="chip">ECS</span><span class="chip">S3</span><span class="chip">RDS</span><span class="chip">Lambda</span></div></div>
+      <div class="skill"><h3>Architecture</h3><div class="chips"><span class="chip key">Microservices</span><span class="chip">REST APIs</span><span class="chip">Event-driven systems</span></div></div>
+      <div class="skill"><h3>DevOps &amp; tools</h3><div class="chips"><span class="chip">Docker</span><span class="chip">Git</span><span class="chip">CI/CD</span><span class="chip">Linux</span></div></div>
+      <div class="skill"><h3>Python libraries</h3><div class="chips"><span class="chip">Pandas</span><span class="chip">NumPy</span><span class="chip">Pydantic</span><span class="chip">SQLAlchemy</span></div></div>
+    </div>
+  </section>
+
+  <section id="background">
+    <div class="head">
+      <span class="eyebrow">Background</span>
+      <h2>Education, awards and certifications.</h2>
+    </div>
+    <div class="extras">
+      <div class="box">
+        <h3>Education</h3>
+        <ul class="list">
+          <li><span>B.E., Electronics &amp; Communication<span class="sub">Visvesvaraya Technological University</span></span><small>2005–2009</small></li>
+        </ul>
+      </div>
+      <div class="box">
+        <h3>Awards</h3>
+        <ul class="list">
+          <li><span><span class="award">★</span>Best Technical Contributor Award</span><small>2017</small></li>
+          <li><span><span class="award">★</span>Team Award for Best Core Values</span><small>2017</small></li>
+        </ul>
+      </div>
+      <div class="box">
+        <h3>Certifications</h3>
+        <ul class="list">
+          <li><span>Secure Code Warrior White Belt (Python)</span><small>SCW</small></li>
+          <li><span>REST APIs with Flask and Python</span><small>Udemy</small></li>
+          <li><span>Django</span><small>Udemy</small></li>
+        </ul>
+      </div>
+      <div class="box">
+        <h3>Languages</h3>
+        <ul class="list">
+          <li><span>English</span><small>fluent</small></li>
+          <li><span>Hindi</span><small>fluent</small></li>
+          <li><span>Odia</span><small>fluent</small></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="cta">
+      <div>
+        <span class="eyebrow" style="color:var(--hero-accent)">Contact</span>
+        <h2 style="margin-top:10px">Let's build something reliable.</h2>
+        <p>Open to senior backend and platform engineering roles. Email or phone is the quickest way to reach me.</p>
+        <div class="actions">
+          <a class="btn primary" href="mailto:srdas120986@gmail.com">Email me</a>
+          <button class="btn" id="copy-email" type="button">Copy email</button>
+        </div>
+      </div>
+      <div class="lines">
+        <div><span class="lbl">Email</span><a href="mailto:srdas120986@gmail.com">srdas120986@gmail.com</a></div>
+        <div><span class="lbl">Phone</span><a href="tel:+918456925117">+91 84569 25117</a></div>
+        <div><span class="lbl">LinkedIn</span><a href="https://www.linkedin.com/in/srdas120986" target="_blank" rel="noopener">in/srdas120986 ↗</a></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="inner">
+  <span>© <span id="yr">2026</span> Soumya Ranjan Das</span>
+  <a href="#home">Back to top ↑</a>
+</footer>
+
+<script>
+(function(){
+  var y=document.getElementById('yr'); if(y) y.textContent=new Date().getFullYear();
+  var btn=document.getElementById('copy-email'), email='srdas120986@gmail.com';
+  btn.addEventListener('click',function(){
+    var done=function(){btn.textContent='Copied';setTimeout(function(){btn.textContent='Copy email'},1800)};
+    try{navigator.clipboard.writeText(email).then(done,function(){btn.textContent=email})}catch(e){btn.textContent=email}
+  });
+  var links=[].slice.call(document.querySelectorAll('.top nav a'));
+  var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'))});
+  function onScroll(){
+    var pos=window.scrollY+120, idx=-1;
+    secs.forEach(function(s,i){if(s && s.getBoundingClientRect().top+window.scrollY<=pos) idx=i});
+    if(window.innerHeight+window.scrollY>=document.body.scrollHeight-4) idx=secs.length-1;
+    links.forEach(function(a,i){a.classList.toggle('active',i===idx)});
+  }
+  window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
+})();
+</script>
+</body>
+</html>
